@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "naicgen", "naicgen\naicgen.csproj", "{56EB5195-4A04-433C-85BB-FA966B426125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAIC Generator", "NAIC Generator\NAIC Generator.csproj", "{A0999E20-DB11-442D-81D6-2193001DD131}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NAIC Generator Installer", "NAIC Generator Installer\NAIC Generator Installer.vdproj", "{33AC53A6-2997-446C-A15A-B184FE102449}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56EB5195-4A04-433C-85BB-FA966B426125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56EB5195-4A04-433C-85BB-FA966B426125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56EB5195-4A04-433C-85BB-FA966B426125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56EB5195-4A04-433C-85BB-FA966B426125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0999E20-DB11-442D-81D6-2193001DD131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0999E20-DB11-442D-81D6-2193001DD131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0999E20-DB11-442D-81D6-2193001DD131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0999E20-DB11-442D-81D6-2193001DD131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AC53A6-2997-446C-A15A-B184FE102449}.Debug|Any CPU.ActiveCfg = Debug
+		{33AC53A6-2997-446C-A15A-B184FE102449}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

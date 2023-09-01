@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="naic.SettingsWindowProvidersTabProviderDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:naic"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid Background="White">
+        <ScrollViewer  Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid Grid.IsSharedSizeScope="True" x:Name="FormGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="A"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label x:Name="lbProviderTitle" FontWeight="Bold" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="0,10,0,38">
+                    <Binding Path="CurrentProvider.Name"></Binding>
+                </Label>
+                <Expander x:Name="expander" Grid.Row="0" Header="Provider Info" Margin="0,40,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="A"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Create border objects to bind the -->
+                        <!-- small text boxes' widths to       -->
+                        <Border x:Name="providerLeftBorder" Grid.Column="1"></Border>
+                        <Border x:Name="providerRightBorder" Grid.Column="3"></Border>
+
+                        <Label Grid.Column="0" Grid.Row="0">Name</Label>
+                        <Label Grid.Column="0" Grid.Row="1">Home State</Label>
+                        <Label Grid.Column="2" Grid.Row="1">FEIN</Label>
+                        <Label Grid.Column="0" Grid.Row="2">Provider Number</Label>
+                        
+                        <TextBox Text="{Binding Path=CurrentProvider.Name}"                    x:Name="tbProviderName"      Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.HomeState}"               x:Name="tbProviderHomeState" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1" Width="{Binding ActualWidth, ElementName=providerLeftBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.FEIN}"                    x:Name="tbProviderFEIN"      Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="1" Width="{Binding ActualWidth, ElementName=providerRightBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.HomeStateProviderNumber}" x:Name="tbProviderNumber"    Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" Width="{Binding ActualWidth, ElementName=providerLeftBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+
+                    </Grid>
+                </Expander>
+                <Expander x:Name="expander1" Grid.Row="1" Header="Contact Info" Margin="0,10,10,10" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="A"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Create border objects to bind the -->
+                        <!-- small text boxes' widths to       -->
+                        <Border x:Name="contactLeftBorder" Grid.Column="1"></Border>
+                        <Border x:Name="contactRightBorder" Grid.Column="3"></Border>
+
+                        <Label Grid.Column="0" Grid.Row="0">Name</Label>
+                        <Label Grid.Column="0" Grid.Row="1">Email Address</Label>
+                        <Label Grid.Column="0" Grid.Row="2">Phone Number</Label>
+                        <Label Grid.Column="2" Grid.Row="2">Fax Number</Label>
+                        <Label Grid.Column="0" Grid.Row="3">Street Address</Label>
+                        <Label Grid.Column="0" Grid.Row="4">City</Label>
+                        <Label Grid.Column="0" Grid.Row="5">State</Label>
+                        <Label Grid.Column="2" Grid.Row="5">Zip</Label>
+
+                        <TextBox Text="{Binding Path=CurrentProvider.ContactName}"          x:Name="tbContactName"   Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.ContactEmail}"         x:Name="tbContactEmail"  Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.ContactPhone}"         x:Name="tbContactPhone"  Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2" Width="{Binding ActualWidth, ElementName=contactLeftBorder}" TextWrapping="NoWrap" Margin="0,4,0,3" Height="23"/>                       
+                        <TextBox Text="{Binding Path=CurrentProvider.ContactFax}"           x:Name="tbContactFax"    Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="2" Width="{Binding ActualWidth, ElementName=contactRightBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.MailingStreetAddress}" x:Name="tbMailingStreet" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.MailingCity}"          x:Name="tbMailingCity"   Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.MailingState}"         x:Name="tbMailingState"  Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="5" Width="{Binding ActualWidth, ElementName=contactLeftBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <TextBox Text="{Binding Path=CurrentProvider.MailingZip}"           x:Name="tbMailingZip"    Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="5" Width="{Binding ActualWidth, ElementName=contactRightBorder}" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                    </Grid>
+                </Expander>
+                <Expander x:Name="expander2" Grid.Row="2" Header="Default Course Settings" Margin="0,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="A"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0">Title</Label>
+                        <Label Grid.Column="0" Grid.Row="1">Course Method</Label>
+                        <Label Grid.Column="2" Grid.Row="1">Difficulty</Label>
+                        <TextBox Text="{Binding Path=CurrentProvider.DefaultCourseTitle}"  x:Name="tbDefaultCourseTitle" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0,4,0,3" Height="23"/>
+                        <ComboBox x:Name="cbDefaultCourseMethod" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1" Margin="0,4,0,3" SelectedIndex="0" SelectionChanged="cbDefaultCourseMethod_SelectionChanged">
+                            <ComboBox.Items>
+                                <ComboBoxItem>None</ComboBoxItem>
+                                <ComboBoxItem>Self-Study: Correspondence</ComboBoxItem>
+                                <ComboBoxItem>Self-Study: On-Line Training</ComboBoxItem>
+                                <ComboBoxItem>Self-Study: Video/Audio/CD/DVD</ComboBoxItem>
+                                <ComboBoxItem>Classroom: Seminar/Workshop</ComboBoxItem>
+                                <ComboBoxItem>Classroom: Webinar</ComboBoxItem>
+                                <ComboBoxItem>Classroom: Teleconference</ComboBoxItem>
+                                <ComboBoxItem>Classroom: Other</ComboBoxItem>
+                            </ComboBox.Items>
+                        </ComboBox>
+                        <ComboBox x:Name="cbDefaultCourseDifficulty" Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="1" Margin="0,4,0,3" SelectedIndex="0" SelectionChanged="cbDefaultCourseDifficulty_SelectionChanged">
+                            <ComboBox.Items>
+                                <ComboBoxItem>None</ComboBoxItem>
+                                <ComboBoxItem>Basic</ComboBoxItem>
+                                <ComboBoxItem>Intermediate</ComboBoxItem>
+                                <ComboBoxItem>Advanced</ComboBoxItem>
+                            </ComboBox.Items>
+                        </ComboBox>
+                        <CheckBox IsChecked="{Binding Path=CurrentProvider.DefaultRequiresExam}" x:Name="cbDefaultRequiresExam" Grid.Column="1" Grid.Row="2" Margin="0,6,0,0">Requires Exam</CheckBox>
+                        <CheckBox IsChecked="{Binding Path=CurrentProvider.DefaultIsPublic}" x:Name="cbDefaultIsPublic" Grid.Column="3" Grid.Row="2" Margin="0,6,0,0">Public</CheckBox>
+                        <CheckBox IsChecked="{Binding Path=CurrentProvider.DefaultIsDesignation}" x:Name="cbDefaultIsDesignation" Grid.Column="1" Grid.Row="3" Margin="0,6,0,0">Designation</CheckBox>
+                    </Grid>
+                </Expander>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

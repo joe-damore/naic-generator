@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="naic.SettingsWindowGeneralTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:naic"
+             xmlns:p="clr-namespace:naic.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="420" d:DesignWidth="420">
+    <ScrollViewer
+        Background="White"
+        VerticalScrollBarVisibility="Auto"
+        HorizontalScrollBarVisibility="Disabled">
+            <Grid Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="6"
+                    FontWeight="Bold"
+                    Margin="0,0,0,8"
+                    >
+                    Personal
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="1"
+                    Margin="0,0,8,0"
+                    >
+                    Name
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="1"
+                    Margin="0,0,8,0"
+                    >
+                    Default Provider
+                </Label>
+
+                <TextBox
+                    x:Name="tbUserName"
+                    TextWrapping="NoWrap"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    Height="23"
+                    Margin="0,4,0,3"
+                    />
+                
+                <RadioButton
+                    x:Name="rbDefaultProviderLastUsed"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,6"
+                    GroupName="DefaultProvider"
+                    >
+                    <RadioButton.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Last Used
+                        </TextBlock>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton
+                    x:Name="rbDefaultProviderOther"
+                    Grid.Column="5"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,6"
+                    GroupName="DefaultProvider"
+                    >
+                    <RadioButton.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Other
+                        </TextBlock>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <ComboBox
+                    x:Name="cbDefaultProvider"
+                    ItemsSource="{Binding Path=ParentWindow.Providers}"
+                    DisplayMemberPath="Name"
+                    Grid.Column="5"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Height="22"
+                    IsEnabled="{Binding ElementName=rbDefaultProviderOther, Path=IsChecked}"
+                    >
+                </ComboBox>
+
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="6"
+                    FontWeight="Bold"
+                    Margin="0,8,0,8"
+                    >
+                    Output
+                </Label>
+
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="1"
+                    Margin="0,4,8,0"
+                    >
+                    Default Folder
+                </Label>
+
+                <CheckBox
+                    x:Name="cbReplaceExistingFiles"
+                    Grid.Column="2"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="5"
+                    Margin="0,4,0,3"
+                    Height="23"
+                    >
+                    <CheckBox.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Replace Existing Files
+                        </TextBlock>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <CheckBox
+                    x:Name="cbPreserveContentControls"
+                    Grid.Column="2"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="5"
+                    Margin="0,4,0,3"
+                    Height="23"
+                    >
+                    <CheckBox.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Preserve Content Controls
+                        </TextBlock>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <CheckBox
+                    x:Name="cbGenerateLog"
+                    Grid.Column="2"
+                    Grid.Row="8"
+                    Grid.ColumnSpan="5"
+                    Margin="0,4,0,3"
+                    Height="23"
+                    >
+                    <CheckBox.Content>
+                        <TextBlock
+                        TextTrimming="CharacterEllipsis"
+                        >
+                        Generate Output Logs
+                        </TextBlock>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <RadioButton
+                    x:Name="rbDefaultFolderLastUsed"
+                    Grid.Column="2"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10"
+                    GroupName="DefaultFolder"
+                    >
+                    <RadioButton.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Last Used
+                        </TextBlock>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton
+                    x:Name="rbDefaultFolderOther"
+                    Grid.Column="5"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10"
+                    GroupName="DefaultFolder"
+                    >
+                    <RadioButton.Content>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            >
+                            Other
+                        </TextBlock>
+                    </RadioButton.Content>
+                </RadioButton>
+                <TextBox
+                    x:Name="tbDefaultOutputFolder"
+                    Grid.Column="5"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="10"
+                    Height="23"
+                    Margin="0,4,74,3"
+                    TextWrapping="NoWrap"
+                    IsEnabled="{Binding ElementName=rbDefaultFolderOther, Path=IsChecked}"
+                    >
+                </TextBox>
+                <Button
+                    Grid.Column="6"
+                    Grid.ColumnSpan="1"
+                    Grid.Row="10"
+                    Height="23"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="8,4,0,0"
+                    Width="66"
+                    IsEnabled="{Binding ElementName=rbDefaultFolderOther, Path=IsChecked}"
+                    Click="OnBrowseButtonClick"
+                    >
+                    Browse...
+                </Button>
+            </Grid>
+        </ScrollViewer>
+</UserControl>

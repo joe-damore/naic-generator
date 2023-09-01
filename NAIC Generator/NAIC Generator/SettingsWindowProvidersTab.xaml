@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="naic.SettingsWindowProvidersTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:naic"
+             mc:Ignorable="d" 
+             d:DesignHeight="330" d:DesignWidth="500">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter x:Name="gridSplitter" Background="White" Grid.Column="1"  Margin="0,0,0,0"  Width="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ListBox x:Name="providerListBox" DisplayMemberPath="Name" ItemsSource="{Binding Path=ParentWindow.Providers}" Margin="10,10,0,10" Grid.Column="0" SelectionChanged="ProviderListBoxSelectionChanged">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="ContextMenuNewProvider"  Header="New Provider" Click="ContextMenuNewProvider_Click" />
+                    <MenuItem x:Name="ContextMenuDeleteProvider" Header="Delete Provider" Click="ContextMenuDeleteProvider_Click" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <TabControl Name="DetailTabControl" Grid.Column="2" Margin="0" Padding="0" BorderThickness="0" SelectedIndex="1">
+            <!-- Provider detail view -->
+            <TabItem Visibility="Collapsed">
+                <local:SettingsWindowProvidersTabProviderDetail x:Name="providerDetails"></local:SettingsWindowProvidersTabProviderDetail>
+            </TabItem>
+            <!-- Provider no providers view -->
+            <TabItem Visibility="Collapsed">
+                <local:SettingsWindowProvidersTabNoProviders x:Name="noProviders"></local:SettingsWindowProvidersTabNoProviders>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</UserControl>
